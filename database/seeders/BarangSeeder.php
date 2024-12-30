@@ -10,21 +10,21 @@ class BarangSeeder extends Seeder
     public function run()
     {
         Barang::create([
-            'nama_barang' => 'Laptop',
-            'stok' => 15,
-            'kategori' => 'Elektronik',
+            'art_no' => '13093291026',
+            'description' => 'Raukantex Decor',
+            'color' => '420L',
+        ]);
+        Barang::create([
+            'art_no' => '13093291030',
+            'description' => 'Raukantex Decor',
+            'color' => '646L',
+        ]);
+        Barang::create([
+            'art_no' => '13105811023',
+            'description' => 'Raukantex Decor Sonoma Oak',
+            'color' => '1268B',
         ]);
 
-        Barang::create([
-            'nama_barang' => 'Meja Kantor',
-            'stok' => 30,
-            'kategori' => 'Furniture',
-        ]);
 
-        Barang::create([
-            'nama_barang' => 'Printer',
-            'stok' => 10,
-            'kategori' => 'Elektronik',
-        ]);
     }
 }

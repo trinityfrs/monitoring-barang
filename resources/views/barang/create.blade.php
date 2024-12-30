@@ -6,16 +6,16 @@
     <form action="{{ route('barang.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label>Nama Barang</label>
-            <input type="text" name="nama_barang" class="form-control" required>
+            <label>Art. No</label>
+            <input type="text" name="art_no" class="form-control" required>
         </div>
         <div class="form-group">
-            <label>Stok</label>
-            <input type="number" name="stok" class="form-control" required>
+            <label>Description</label>
+            <input type="number" name="description" class="form-control" required>
         </div>
         <div class="form-group">
-            <label>Kategori</label>
-            <input type="text" name="kategori" class="form-control" required>
+            <label>Color</label>
+            <input type="text" name="color" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>

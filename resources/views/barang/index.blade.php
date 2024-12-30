@@ -8,19 +8,21 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nama Barang</th>
-                <th>Stok</th>
-                <th>Kategori</th>
-                <th>Aksi</th>
+                <th>Art. No</th>
+                <th>Description</th>
+                <th>Color</th>
+                <th>Date</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($barang as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->nama_barang }}</td>
-                    <td>{{ $item->stok }}</td>
-                    <td>{{ $item->kategori }}</td>
+                    <td>{{ $item->art_no }}</td>
+                    <td>{{ $item->description }}</td>
+                    <td>{{ $item->color }}</td>
+                    <td>{{ $item->created_at }}</td>
                     <td>
                         <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('barang.destroy', $item->id) }}" method="POST" style="display:inline;">
