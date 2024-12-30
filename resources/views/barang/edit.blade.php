@@ -1,24 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>Edit Barang</h1>
-    <form action="{{ route('barang.update', $barang->id) }}" method="POST">
-        @csrf
-        @method('PUT')
-        <div class="form-group">
-            <label>Art. No</label>
-            <input type="text" name="nama_barang" value="{{ $barang->art_no }}" class="form-control" required>
+<div class="container py-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h5 mb-0">Edit Barang</h2>
         </div>
-        <div class="form-group">
-            <label>Description</label>
-            <input type="number" name="stok" value="{{ $barang->description }}" class="form-control" required>
+        <div class="card-body">
+            <form action="{{ route('barang.update', $barang->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="mb-3">
+                    <label for="art_no" class="form-label">Art. No</label>
+                    <input type="text" id="art_no" name="art_no" value="{{ $barang->art_no }}" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" id="description" name="description" value="{{ $barang->description }}" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="color" class="form-label">Color</label>
+                    <input type="text" id="color" name="color" value="{{ $barang->color }}" class="form-control" required>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label>Color</label>
-            <input type="text" name="kategori" value="{{ $barang->color }}" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Update</button>
-    </form>
+    </div>
 </div>
 @endsection
