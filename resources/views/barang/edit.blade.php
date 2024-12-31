@@ -15,12 +15,12 @@
                     <input type="text" id="art_no" name="art_no" value="{{ $barang->art_no }}" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" id="description" name="description" value="{{ $barang->description }}" class="form-control" required>
+                    <label for="shelf" class="form-label">Shelf</label>
+                    <input type="text" id="shelf" name="shelf" value="{{ $barang->shelf }}" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="color" class="form-label">Color</label>
-                    <input type="text" id="color" name="color" value="{{ $barang->color }}" class="form-control" required>
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="text" id="quantity" name="quantity" value="{{ $barang->quantity }}" class="form-control" required>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">Update</button>

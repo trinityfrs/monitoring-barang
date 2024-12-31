@@ -14,12 +14,12 @@
                     <input type="text" id="art_no" name="art_no" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" id="description" name="description" class="form-control" required>
+                    <label for="shelf" class="form-label">Shelf</label>
+                    <input type="text" id="shelf" name="shelf" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="color" class="form-label">Color</label>
-                    <input type="text" id="color" name="color" class="form-control" required>
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" class="form-control" required>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">Simpan</button>

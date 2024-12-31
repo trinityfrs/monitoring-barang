@@ -13,8 +13,8 @@
                         <tr>
                             <th>#</th>
                             <th>Art. No</th>
-                            <th>Description</th>
-                            <th>Color</th>
+                            <th>Shelf</th>
+                            <th>Quantity</th>
                             <th>Date</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -24,8 +24,8 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->art_no }}</td>
-                                <td>{{ $item->description }}</td>
-                                <td>{{ $item->color }}</td>
+                                <td>{{ $item->shelf }}</td>
+                                <td>{{ $item->quantity }}</td>
                                 <td>{{ $item->created_at->format('d M Y') }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>

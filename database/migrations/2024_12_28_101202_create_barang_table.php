@@ -14,8 +14,8 @@ return new class extends Migration
     Schema::create('barang', function (Blueprint $table) {
         $table->id();
         $table->string('art_no');
-        $table->string('description');
-        $table->string('color');
+        $table->string('shelf');
+        $table->string('quantity');
         $table->timestamps();
     });
 }

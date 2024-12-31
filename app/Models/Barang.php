@@ -13,7 +13,7 @@ class Barang extends Model
 
     protected $fillable = [
         'art_no',
-        'description',
-        'color',
+        'shelf',
+        'quantity',
     ];
 }

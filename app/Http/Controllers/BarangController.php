@@ -22,8 +22,8 @@ class BarangController extends Controller
     {
         $request->validate([
             'art_no' => 'required',
-            'description' => 'required',
-            'color' => 'required',
+            'shelf' => 'required',
+            'quantity' => 'required',
         ]);
 
         Barang::create($request->all());
@@ -40,8 +40,8 @@ class BarangController extends Controller
     {
         $request->validate([
             'art_no' => 'required',
-            'description' => 'required',
-            'color' => 'required',
+            'shelf' => 'required',
+            'quantity' => 'required',
         ]);
 
         $barang = Barang::findOrFail($id);
