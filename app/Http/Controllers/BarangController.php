@@ -20,13 +20,15 @@ class BarangController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'art_no' => 'required',
             'shelf' => 'required',
-            'quantity' => 'required',
+            'quantity_in' => 'required',
         ]);
 
-        Barang::create($request->all());
+        $validated['quantity_out'] = $validated['quantity_in'];
+
+        Barang::create($validated);
         return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan');
     }
 
@@ -38,10 +40,10 @@ class BarangController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
             'art_no' => 'required',
             'shelf' => 'required',
-            'quantity' => 'required',
+            'quantity_out' => 'required',
         ]);
 
         $barang = Barang::findOrFail($id);

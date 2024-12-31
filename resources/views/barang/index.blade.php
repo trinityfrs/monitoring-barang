@@ -14,7 +14,9 @@
                             <th>#</th>
                             <th>Art. No</th>
                             <th>Shelf</th>
-                            <th>Quantity</th>
+                            <th>Quantity In</th>
+                            <th>Date</th>
+                            <th>Quantity Out</th>
                             <th>Date</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -25,8 +27,10 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->art_no }}</td>
                                 <td>{{ $item->shelf }}</td>
-                                <td>{{ $item->quantity }}</td>
+                                <td>{{ $item->quantity_in }}</td>
                                 <td>{{ $item->created_at->format('d M Y') }}</td>
+                                <td>{{ $item->quantity_out }}</td>
+                                <td>{{ $item->updated_at->format('d M Y') }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                     <form action="{{ route('barang.destroy', $item->id) }}" method="POST" style="display:inline;">

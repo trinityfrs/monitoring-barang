@@ -15,7 +15,8 @@ return new class extends Migration
         $table->id();
         $table->string('art_no');
         $table->string('shelf');
-        $table->string('quantity');
+        $table->string('quantity_in');
+        $table->string('quantity_out');
         $table->timestamps();
     });
 }

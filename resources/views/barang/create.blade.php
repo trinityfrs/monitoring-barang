@@ -18,8 +18,8 @@
                     <input type="text" id="shelf" name="shelf" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="quantity" class="form-label">Quantity</label>
-                    <input type="number" id="quantity" name="quantity" class="form-control" required>
+                    <label for="quantity_in" class="form-label">Quantity In</label>
+                    <input type="number" id="quantity_in" name="quantity_in" class="form-control" required>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">Simpan</button>

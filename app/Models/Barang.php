@@ -14,6 +14,7 @@ class Barang extends Model
     protected $fillable = [
         'art_no',
         'shelf',
-        'quantity',
+        'quantity_in',
+        'quantity_out',
     ];
 }
