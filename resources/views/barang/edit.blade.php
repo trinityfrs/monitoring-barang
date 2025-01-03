@@ -20,7 +20,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="quantity_out" class="form-label">Quantity Out</label>
-                    <input type="text" id="quantity_out" name="quantity_out" value="{{ $barang->quantity }}" class="form-control" required>
+                    <input type="number" id="quantity_out" name="quantity_out" value="{{ $barang->quantity_out }}" class="form-control" required>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">Update</button>

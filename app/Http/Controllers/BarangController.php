@@ -9,7 +9,12 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $barang = Barang::all();
+        $search = request()->input('search');
+        if ($search) {
+            $barang = Barang::where('art_no', $search)->get();
+        } else {
+            $barang = Barang::all();
+        }
         return view('barang.index', compact('barang'));
     }
 
@@ -26,7 +31,7 @@ class BarangController extends Controller
             'quantity_in' => 'required',
         ]);
 
-        $validated['quantity_out'] = $validated['quantity_in'];
+        $validated['balance_quantity'] = $validated['quantity_in'];
 
         Barang::create($validated);
         return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan');
@@ -40,14 +45,24 @@ class BarangController extends Controller
 
     public function update(Request $request, $id)
     {
+        $barang = Barang::findOrFail($id);
+
         $validated = $request->validate([
             'art_no' => 'required',
             'shelf' => 'required',
             'quantity_out' => 'required',
+            function ($attribute, $value, $fail) use ($barang) {
+                if ($value > $barang->balance_quantity) {
+                    $fail('Quantity out tidak boleh lebih besar dari balance quantity.');
+                }
+            },
         ]);
 
-        $barang = Barang::findOrFail($id);
-        $barang->update($request->all());
+        $balance_quantity = $barang->quantity_in - $validated['quantity_out'];
+        $barang->update([
+            'quantity_out' => $validated['quantity_out'],
+            'balance_quantity' => $balance_quantity,
+        ]);
         return redirect()->route('barang.index')->with('success', 'Barang berhasil diperbarui');
     }
 
@@ -57,6 +72,4 @@ class BarangController extends Controller
         $barang->delete();
         return redirect()->route('barang.index')->with('success', 'Barang berhasil dihapus');
     }
-
-
 }

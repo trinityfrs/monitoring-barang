@@ -16,5 +16,6 @@ class Barang extends Model
         'shelf',
         'quantity_in',
         'quantity_out',
+        'balance_quantity',
     ];
 }

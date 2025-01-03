@@ -4,6 +4,16 @@
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <a href="{{ route('barang.create') }}" class="btn btn-primary">Tambah Barang</a>
+
+            <form method="GET" class="d-flex">
+                <input
+                    type="text"
+                    name="search"
+                    class="form-control me-2"
+                    placeholder="Cari barang..."
+                    value="{{ request('search') }}">
+                <button type="submit" class="btn btn-outline-primary">Cari</button>
+            </form>
         </div>
 
         <div class="card shadow-sm">
@@ -17,6 +27,7 @@
                             <th>Quantity In</th>
                             <th>Date</th>
                             <th>Quantity Out</th>
+                            <th>Balance Quantity</th>
                             <th>Date</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -30,6 +41,7 @@
                                 <td>{{ $item->quantity_in }}</td>
                                 <td>{{ $item->created_at->format('d M Y') }}</td>
                                 <td>{{ $item->quantity_out }}</td>
+                                <td>{{ $item->balance_quantity }}</td>
                                 <td>{{ $item->updated_at->format('d M Y') }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
