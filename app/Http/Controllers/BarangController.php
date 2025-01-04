@@ -11,7 +11,7 @@ class BarangController extends Controller
     {
         $search = request()->input('search');
         if ($search) {
-            $barang = Barang::where('art_no', $search)->get();
+            $barang = Barang::where('art_no', 'like', "%{$search}%")->get();
         } else {
             $barang = Barang::all();
         }

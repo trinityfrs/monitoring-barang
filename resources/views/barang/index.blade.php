@@ -9,6 +9,7 @@
                 <input
                     type="text"
                     name="search"
+                    id="search"
                     class="form-control me-2"
                     placeholder="Cari barang..."
                     value="{{ request('search') }}">
@@ -64,5 +65,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const searchInput = document.getElementById('search');
+
+        searchInput.onchange = () => {
+          
+        }
+
+    </script>
 @endsection
 
