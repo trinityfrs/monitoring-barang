@@ -14,6 +14,13 @@ use App\Http\Controllers\BarangController;
 |
 */
 
+Route::get('/barang/{id}/add-quantity-in', [BarangController::class, 'addQuantityIn'])->name('barang.addQuantityIn');
+Route::post('/barang/{id}/store-quantity-in', [BarangController::class, 'storeQuantityIn'])->name('barang.storeQuantityIn');
+
+Route::get('/barang/{id}/add-quantity-out', [BarangController::class, 'addQuantityOut'])->name('barang.addQuantityOut');
+Route::post('/barang/{id}/store-quantity-out', [BarangController::class, 'storeQuantityOut'])->name('barang.storeQuantityOut');
+
+
 Route::resource('/barang', BarangController::class);
 
 Route::get("/", function () {

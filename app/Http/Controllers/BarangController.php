@@ -37,6 +37,55 @@ class BarangController extends Controller
         return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan');
     }
 
+    public function addQuantityIn($id)
+    {
+        $barang = Barang::findOrFail($id);
+        return view('barang.add', compact('barang'));
+    }
+
+    public function storeQuantityIn(Request $request, $id)
+    {
+        $barang = Barang::findOrFail($id);
+
+        $validated = $request->validate([
+            'quantity_in' => 'required|integer|min:1',
+        ]);
+
+        $barang->quantity_in += $validated['quantity_in'];
+        $barang->balance_quantity += $validated['quantity_in'];
+
+        $barang->save();
+
+        return redirect()->route('barang.index')->with('success', 'Quantity In berhasil ditambahkan');
+    }
+
+    public function addQuantityOut($id)
+    {
+        $barang = Barang::findOrFail($id);
+        return view('barang.out', compact('barang'));
+    }
+
+    public function storeQuantityOut(Request $request, $id)
+    {
+        $barang = Barang::findOrFail($id);
+
+        $validated = $request->validate([
+            'quantity_out' => 'required|integer|min:1',
+        ]);
+
+        if ($validated['quantity_out'] > $barang->balance_quantity) {
+            return redirect()->back()->withErrors(['quantity_out' => 'Quantity out tidak boleh melebihi balance quantity.']);
+        }
+
+        $barang->quantity_out += $validated['quantity_out'];
+        $barang->balance_quantity -= $validated['quantity_out'];
+
+        $barang->save();
+
+        return redirect()->route('barang.index')->with('success', 'Quantity Out berhasil ditambahkan');
+    }
+
+
     public function edit($id)
     {
         $barang = Barang::findOrFail($id);
@@ -50,20 +99,16 @@ class BarangController extends Controller
         $validated = $request->validate([
             'art_no' => 'required',
             'shelf' => 'required',
-            'quantity_in' => 'required',
-            'quantity_out' => 'required',
         ]);
 
-        $validated['balance_quantity'] = $validated['quantity_in'];
-        $validated['balance_quantity'] = $validated['quantity_in'] - $validated['quantity_out'];
         $barang->update([
-            'quantity_in' => $validated['quantity_in'],
-            'quantity_out' => $validated['quantity_out'],
-            'balance_quantity' => $validated['balance_quantity'],
+            'art_no' => $validated['art_no'],
+            'shelf' => $validated['shelf'],
         ]);
 
         return redirect()->route('barang.index')->with('success', 'Barang berhasil diperbarui');
     }
+
 
     public function destroy($id)
     {

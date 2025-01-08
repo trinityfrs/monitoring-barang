@@ -18,14 +18,6 @@
                     <label for="shelf" class="form-label">Shelf</label>
                     <input type="text" id="shelf" name="shelf" value="{{ $barang->shelf }}" class="form-control" required>
                 </div>
-                <div class="mb-3">
-                    <label for="quantity_in" class="form-label">Quantity In</label>
-                    <input type="number" id="quantity_in" name="quantity_in" value="{{ $barang->quantity_in }}" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="quantity_out" class="form-label">Quantity Out</label>
-                    <input type="number" id="quantity_out" name="quantity_out" value="{{ $barang->quantity_out }}" class="form-control" required>
-                </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>

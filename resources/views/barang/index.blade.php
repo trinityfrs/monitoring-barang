@@ -46,6 +46,8 @@
                                 <td>{{ $item->updated_at->format('d M Y') }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="{{ route('barang.addQuantityIn', $item->id) }}" class="btn btn-success btn-sm">Add</a>
+                                    <a href="{{ route('barang.addQuantityOut', $item->id) }}" class="btn btn-secondary btn-sm">Out</a>
                                     <form action="{{ route('barang.destroy', $item->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
