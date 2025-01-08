@@ -3,8 +3,6 @@
 @section('content')
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <a href="{{ route('barang.create') }}" class="btn btn-primary">Tambah Barang</a>
-
             <form method="GET" class="d-flex">
                 <input
                     type="text"
@@ -13,8 +11,10 @@
                     class="form-control me-2"
                     placeholder="Cari barang..."
                     value="{{ request('search') }}">
-                <button type="submit" class="btn btn-outline-primary">Cari</button>
+                <button type="submit" class="btn btn-primary">Cari</button>
             </form>
+
+            <a href="{{ route('barang.create') }}" class="btn btn-primary">Tambah Barang</a>
         </div>
 
         <div class="card shadow-sm">
@@ -70,7 +70,7 @@
         const searchInput = document.getElementById('search');
 
         searchInput.onchange = () => {
-          
+
         }
 
     </script>

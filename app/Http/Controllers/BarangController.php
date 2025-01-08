@@ -50,19 +50,18 @@ class BarangController extends Controller
         $validated = $request->validate([
             'art_no' => 'required',
             'shelf' => 'required',
+            'quantity_in' => 'required',
             'quantity_out' => 'required',
-            function ($attribute, $value, $fail) use ($barang) {
-                if ($value > $barang->balance_quantity) {
-                    $fail('Quantity out tidak boleh lebih besar dari balance quantity.');
-                }
-            },
         ]);
 
-        $balance_quantity = $barang->quantity_in - $validated['quantity_out'];
+        $validated['balance_quantity'] = $validated['quantity_in'];
+        $validated['balance_quantity'] = $validated['quantity_in'] - $validated['quantity_out'];
         $barang->update([
+            'quantity_in' => $validated['quantity_in'],
             'quantity_out' => $validated['quantity_out'],
-            'balance_quantity' => $balance_quantity,
+            'balance_quantity' => $validated['balance_quantity'],
         ]);
+
         return redirect()->route('barang.index')->with('success', 'Barang berhasil diperbarui');
     }
 
