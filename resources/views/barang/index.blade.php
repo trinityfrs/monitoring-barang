@@ -24,12 +24,13 @@
                         <tr>
                             <th>#</th>
                             <th>Art. No</th>
-                            <th>Shelf</th>
+                            <th>Lokasi Rak
+                            </th>
                             <th>Quantity In</th>
-                            <th>Date</th>
+                            <th>Tanggal Masuk</th>
                             <th>Quantity Out</th>
+                            <th>Tanggal Keluar</th>
                             <th>Balance Quantity</th>
-                            <th>Date</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -40,10 +41,10 @@
                                 <td>{{ $item->art_no }}</td>
                                 <td>{{ $item->shelf }}</td>
                                 <td>{{ $item->quantity_in }}</td>
-                                <td>{{ $item->created_at->format('d M Y') }}</td>
+                                <td>{{ $item->date_in ? \Carbon\Carbon::parse($item->date_in)->format('d M Y') : '-' }}</td>
                                 <td>{{ $item->quantity_out }}</td>
+                                <td>{{ $item->date_out ? \Carbon\Carbon::parse($item->date_out)->format('d M Y') : '-' }}</td>
                                 <td>{{ $item->balance_quantity }}</td>
-                                <td>{{ $item->updated_at->format('d M Y') }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="{{ route('barang.addQuantityIn', $item->id) }}" class="btn btn-success btn-sm">Add</a>
@@ -57,6 +58,7 @@
                             </tr>
                         @endforeach
                     </tbody>
+
                 </table>
 
                 @if ($barang->isEmpty())

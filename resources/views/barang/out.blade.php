@@ -17,6 +17,10 @@
                     <label for="quantity_out" class="form-label">Quantity Out</label>
                     <input type="number" id="quantity_out" name="quantity_out" class="form-control" required>
                 </div>
+                <div class="mb-3">
+                    <label for="date_out" class="form-label">Tanggal Keluar</label>
+                    <input type="date" id="date_out" name="date_out" class="form-control" required>
+                </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">Tambah</button>
                 </div>

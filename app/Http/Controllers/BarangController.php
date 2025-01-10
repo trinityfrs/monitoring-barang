@@ -49,10 +49,12 @@ class BarangController extends Controller
 
         $validated = $request->validate([
             'quantity_in' => 'required|integer|min:1',
+            'date_in' => 'required|date',
         ]);
 
         $barang->quantity_in += $validated['quantity_in'];
         $barang->balance_quantity += $validated['quantity_in'];
+        $barang->date_in = $validated['date_in'];
 
         $barang->save();
 
@@ -71,6 +73,7 @@ class BarangController extends Controller
 
         $validated = $request->validate([
             'quantity_out' => 'required|integer|min:1',
+            'date_out' => 'required|date',
         ]);
 
         if ($validated['quantity_out'] > $barang->balance_quantity) {
@@ -79,6 +82,7 @@ class BarangController extends Controller
 
         $barang->quantity_out += $validated['quantity_out'];
         $barang->balance_quantity -= $validated['quantity_out'];
+        $barang->date_out = $validated['date_out'];
 
         $barang->save();
 
