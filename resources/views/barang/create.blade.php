@@ -21,6 +21,10 @@
                     <label for="quantity_in" class="form-label">Quantity In</label>
                     <input type="number" id="quantity_in" name="quantity_in" class="form-control" required>
                 </div>
+                <div class="mb-3">
+                    <label for="date_in" class="form-label">Tanggal Masuk</label>
+                    <input type="date" id="date_in" name="date_in" class="form-control" value="{{ date('Y-m-d') }}" required>
+                </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>

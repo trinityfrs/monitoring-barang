@@ -28,14 +28,19 @@ class BarangController extends Controller
         $validated = $request->validate([
             'art_no' => 'required',
             'shelf' => 'required',
-            'quantity_in' => 'required',
+            'quantity_in' => 'required|integer|min:1',
+            'date_in' => 'nullable|date',
         ]);
+
+        $validated['date_in'] = $validated['date_in'] ?? now()->toDateString();
 
         $validated['balance_quantity'] = $validated['quantity_in'];
 
         Barang::create($validated);
+
         return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan');
     }
+
 
     public function addQuantityIn($id)
     {
